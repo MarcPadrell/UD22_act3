@@ -1,51 +1,51 @@
 package com.bootcamp.UD22.Act3.modelo.laboratorio.clases;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.bootcamp.UD22.Act3.modelo.sql.Sql;
 
 public class Cientifico {
 
-	private String dni_cientifico;
-	private String nomApels_cientifico;
-	private String query_cientifico;
-	private String db = "LABORATORIO";
 
-	public Cientifico() {
-
-	}
-
-	public String getDni_cientifico() {
-		return dni_cientifico;
-	}
-
-	public void setDni_cientifico(String dni_cientifico) {
-		this.dni_cientifico = dni_cientifico;
-	}
-
-	public String getNomApels_cientifico() {
-		return nomApels_cientifico;
-	}
-
-	public void setNomApels_cientifico(String nomApels_cientifico) {
-		this.nomApels_cientifico = nomApels_cientifico;
-	}
-
-	public String getQuery_cientifico() {
-		return query_cientifico;
-	}
-
-	public void setQuery_cientifico(String query_cientifico) {
-		this.query_cientifico = query_cientifico;
-	}
-
-	public String getDb() {
-		return db;
-	}
-
-	public void setDb(String db) {
-		this.db = db;
-	}
-
+	private String query;
+	private Sql sql = new Sql();
+	protected final String DB = "LABORATORIO";
 	
+	public Cientifico() {
+		crearTabla();
+	}
+	public void crearTabla() {
+		query = "CREATE TABLE IF NOT EXISTS CIENTIFICO ("
+				+ "dni varchar(8) primary key,"
+				+ "nomapels nvarchar(255));";
+		try {
+			sql.inyeccionSQL(DB, query);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void insertCientifico(String dni, String nombre) throws Exception {
+		query = "INSERT INTO CIENTIFICO VALUES ('" + dni + "', '" + nombre + "')";
+		sql.inyeccionSQL(DB, query);
+	}
+
+	public void deleteCientifico() throws Exception {
+		query = "DELETE FROM CIENTIFICO";
+		sql.inyeccionSQL(DB, query);
+	}
+
+	public void updateCientifico(String field, String valueOld, String valueNew) throws Exception {
+		query = "UPDATE CIENTIFICO SET " + field + " = '" + valueNew + "' WHERE " + field + " = '" + valueOld+"'";
+		sql.inyeccionSQL(DB, query);
+	}
+
+	public List<String> selectCientifico()throws Exception {
+		List<String> list = new ArrayList<String>();
+		list = sql.getValues(DB, "CIENTIFICO");
+		return list;
+	}
 
 	
 }

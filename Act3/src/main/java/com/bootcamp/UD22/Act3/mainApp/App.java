@@ -1,7 +1,7 @@
 package com.bootcamp.UD22.Act3.mainApp;
 
 import com.bootcamp.UD22.Act3.controlador.Controlador;
-import com.bootcamp.UD22.Act3.modelo.Laboratorio;
+import com.bootcamp.UD22.Act3.modelo.laboratorio.clases.Laboratorio;
 import com.bootcamp.UD22.Act3.vista.Vista;
 
 /**

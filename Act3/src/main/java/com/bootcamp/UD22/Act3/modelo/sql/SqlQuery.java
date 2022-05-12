@@ -2,7 +2,7 @@ package com.bootcamp.UD22.Act3.modelo.sql;
 
 public class SqlQuery {
 	
-	private String DB = "LABORATORIO";
+	/*private String DB = "LABORATORIO";
 	private String queryCrearCientifico = "CREATE TABLE IF NOT EXISTS CIENTIFICO ("
 			+ "dni varchar(8) primary key,"
 			+ "nomapels nvarchar(255));";
@@ -31,5 +31,5 @@ public class SqlQuery {
 		}
 		Sql.cerrarConnection();
 	}
-
+*/
 }

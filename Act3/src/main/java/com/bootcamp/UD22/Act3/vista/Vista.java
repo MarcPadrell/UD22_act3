@@ -22,7 +22,7 @@ public class Vista extends JFrame {
 	private JPanel contentPane;
 	public JTextField tf1,tf2,tf3;
 	public JButton btnUpdate, btnInsert,btnDelete, btnSelect, btnAplicar;
-	public JComboBox cB_tipo;
+	public JComboBox cB_tipo,cB_campo;
 	public JTextArea ta;
 	public JLabel  lb1, lb2, lb3 , lblObjeto;
 	public JButton btnLimpiar;
@@ -114,5 +114,10 @@ public class Vista extends JFrame {
 		btnLimpiar = new JButton("Limpiar");
 		btnLimpiar.setBounds(132, 201, 89, 23);
 		contentPane.add(btnLimpiar);
+		
+		cB_campo = new JComboBox();
+		cB_campo.setBounds(33, 155, 89, 22);
+		contentPane.add(cB_campo);
+		cB_campo.setVisible(false);
 	}
 }
